@@ -59,17 +59,19 @@ public class ArrayListNotes
     public static void removeEvens( ArrayList<Integer> list )
     {
         int listSize = list.size();   // returns the number of elements in the list
-        
+
         for ( int i = 0; i < listSize; i++ )
         {
             int value = list.get(i); // gets a given element at a specified index
-            if (value % 2 == 0 )
+            if (value % 2 == 0)
             {
-                list.remove( i );  // removes an element from the array at a given index
+                list.remove( i );  // removes an element from the array list at a given index
+                                   // remaining elements in the list shift left
             }
+            
+            System.out.println(list);
         }
         
-        System.out.println( list );
     }
     
         /**
@@ -91,12 +93,31 @@ public class ArrayListNotes
         System.out.println( list );
     }
     
+        /**
+     * Removes even numbers from the specified list
+     * @param list the list of numbers to potentially remove
+     */
+    public static void removeEvens3( ArrayList<Integer> list )
+    {
+      
+        for ( int i = list.size() - 1; i >= 0; i-- )
+        {
+            if (list.get(i) % 2 == 0 )
+            {
+                list.remove( i );
+                
+            }
+        }
+        
+        System.out.println( list );
+    }
+    
     
     public static void main(String[] args)
     {
         ArrayList<Integer> myList = createRandomIntegerList( 10, 20 );
         System.out.println(myList);
-        removeEvens2( myList );
+        removeEvens3(myList); 
         System.out.println(myList);
         
     }
